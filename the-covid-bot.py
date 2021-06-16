@@ -42,7 +42,7 @@ while True:
 
 
     # the tweets to be published !!
-    tweet = ("Canadian Covid Statistics" + "\n\nNew Cases: " + str(update_cases) + "\nNew Deaths: " + str(new_deaths) + "\n\nTotal Cases: " + str(total_cases) + "\nTotal Deaths: " + str(total_deaths) + "\nTotal Tests: " + str(total_tests) + "\nTotal Recoveries: " + str(total_recoveries) + "\n\nNew Vaccinations: " + str(new_vaccinations) + "\nTotal Canadians Vaccinated: " + str(total_current_vaccinated) + "\nRemaining Vaccine Supply: " + str(total_new_vaccinated))
+    tweet = ("Canadian Covid Statistics For Today:" + "\n\nNew Cases: " + str(update_cases) + "\nNew Deaths: " + str(new_deaths) + "\n\nTotal Cases: " + str(total_cases) + "\nTotal Deaths: " + str(total_deaths) + "\nTotal Tests: " + str(total_tests) + "\nTotal Recoveries: " + str(total_recoveries) + "\n\nNew Vaccinations: " + str(new_vaccinations) + "\nTotal Canadians Vaccinated: " + str(total_current_vaccinated) + "\nRemaining Vaccine Supply: " + str(total_new_vaccinated))
     tweet2 = ("Please follow the recommended health precautions when travelling or working: https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks.html")
     print(len(tweet)) #check character amount for the tweet, must be 280 or below, edit if there is too much
     print(tweet) #ensure output is looking good in the console before tweeting
@@ -57,7 +57,7 @@ while True:
         for picture in os.listdir('.'):
             api.update_with_media('../8.jpg', tweet2) #go to previous directory to retreive picture
             api.update_with_media(picture, tweet)
-            time.sleep(15)# 86400 seconds = every 24 hours
+            time.sleep(86400)# 86400 seconds = every 24 hours
 
     except:
             print('There was an error with uploading the tweets')
