@@ -59,7 +59,7 @@ while True:
             for picture in os.listdir('.'):
                 api.update_with_media('../8.jpg', tweet2) #go to previous directory to retreive picture
                 api.update_with_media(picture, tweet)
-                time.sleep(15)# 86400 seconds = every 24 hours
+                time.sleep(86400)# 86400 seconds = every 24 hours
 
         except:
             print('There was an error with uploading the tweets')
