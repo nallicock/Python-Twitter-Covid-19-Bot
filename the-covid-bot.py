@@ -20,7 +20,6 @@ url = "https://api.covid19tracker.ca/summary"
 fileobj = urllib.request.urlopen(url)
 data = json.loads(fileobj.read())
 today = datetime.today().strftime('%d/%m/%Y')#format today's date
-today_time = time.strftime("%H:%M:%S")
 
 print('This is my twitter bot!')
 print(json.load(urllib.request.urlopen(url)))
@@ -44,7 +43,7 @@ for record in data['data']:
 
 
 # the tweets to be published !!
-tweet = ("Canadian Covid Statistics as of " + str(today) + " | " + today_time + "\n\nNew Cases: " + str(update_cases) + "\nNew Deaths: " + str(new_deaths) + "\n\nTotal Cases: " + str(total_cases) + "\nTotal Deaths: " + str(total_deaths) + "\nTotal Tests: " + str(total_tests) + "\nTotal Recoveries: " + str(total_recoveries) + "\n\nNew Vaccinations: " + str(new_vaccinations) + "\nTotal Canadians Vaccinated: " + str(total_current_vaccinated) + "\nRemaining Vaccine Supply: " + str(total_new_vaccinated))
+tweet = ("Canadian Covid Statistics as of " + str(today) + " | " + "\n\nNew Cases: " + str(update_cases) + "\nNew Deaths: " + str(new_deaths) + "\n\nTotal Cases: " + str(total_cases) + "\nTotal Deaths: " + str(total_deaths) + "\nTotal Tests: " + str(total_tests) + "\nTotal Recoveries: " + str(total_recoveries) + "\n\nNew Vaccinations: " + str(new_vaccinations) + "\nTotal Canadians Vaccinated: " + str(total_current_vaccinated) + "\nRemaining Vaccine Supply: " + str(total_new_vaccinated))
 tweet2 = ("Please follow the recommended health precautions when travelling or working: https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks.html")
 print(len(tweet)) #check character amount for the tweet, must be 280 or below, edit if there is too much
 print(tweet) #ensure output is looking good in the console before tweeting
