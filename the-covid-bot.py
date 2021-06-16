@@ -20,7 +20,7 @@ url = "https://api.covid19tracker.ca/summary"
 fileobj = urllib.request.urlopen(url)
 data = json.loads(fileobj.read())
 today = datetime.today().strftime('%d/%m/%Y')#format today's date
-today_time = time.strftime("%H:%M:%S")
+# today_time = time.strftime("%H:%M:%S")
 
 print('This is my twitter bot!')
 print(json.load(urllib.request.urlopen(url)))
