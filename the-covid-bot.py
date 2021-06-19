@@ -28,21 +28,21 @@ while True:
     # save the data from the json into variables to print to console and tweet
     for record in data['data']: 
         print(record)
-        new_deaths = record['change_fatalities']
-        new_vaccinations = record['change_vaccinated']
-        update_cases = record['change_cases']
-        update_hospitalizations = record['change_hospitalizations']
-        total_cases = record['total_cases']
-        total_deaths = record['total_fatalities']
-        total_tests = record['total_tests']
-        total_current_vaccinated = record ['total_vaccinated']
-        total_recoveries = record['total_recoveries']
-        total_new_vaccinated = record['total_vaccinations']
-        total_vaccines_distributed = record['total_vaccines_distributed']
+        new_deaths = int(record['change_fatalities'])
+        new_vaccinations = int(record['change_vaccinated'])
+        update_cases = int(record['change_cases'])
+        update_hospitalizations = int(record['change_hospitalizations'])
+        total_cases = int(record['total_cases'])
+        total_deaths = int(record['total_fatalities'])
+        total_tests = int(record['total_tests'])
+        total_current_vaccinated = int(record ['total_vaccinated'])
+        total_recoveries = int(record['total_recoveries'])
+        total_new_vaccinated = int(record['total_vaccinations'])
+        total_vaccines_distributed = int(record['total_vaccines_distributed'])
 
 
     # the tweets to be published !!
-    tweet = ("Canadian Covid Statistics For Today:" + "\n\nNew Cases: " + str(update_cases) + "\nNew Deaths: " + str(new_deaths) + "\n\nTotal Cases: " + str(total_cases) + "\nTotal Deaths: " + str(total_deaths) + "\nTotal Tests: " + str(total_tests) + "\nTotal Recoveries: " + str(total_recoveries) + "\n\nNew Vaccinations: " + str(new_vaccinations) + "\nTotal Canadians Vaccinated: " + str(total_current_vaccinated) + "\nRemaining Vaccine Supply: " + str(total_new_vaccinated))
+    tweet = ("Canadian Covid Statistics For Today:" + "\n\nNew Cases: " + str(update_cases) + "\nNew Deaths: " + '{:,}'.format(new_deaths) + "\n\nTotal Cases: " + '{:,}'.format(total_cases) + "\nTotal Deaths: " + '{:,}'.format(total_deaths) + "\nTotal Tests: " + '{:,}'.format(total_tests) + "\nTotal Recoveries: " + '{:,}'.format(total_recoveries) + "\n\nNew Vaccinations: " + '{:,}'.format(new_vaccinations) + "\nTotal Canadians Vaccinated: " + '{:,}'.format(total_current_vaccinated) + "\nRemaining Vaccine Supply: " + '{:,}'.format(total_new_vaccinated))
     tweet2 = ("Please follow the recommended health precautions when travelling or working: https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks.html")
     print(len(tweet)) #check character amount for the tweet, must be 280 or below, edit if there is too much
     print(tweet) #ensure output is looking good in the console before tweeting
