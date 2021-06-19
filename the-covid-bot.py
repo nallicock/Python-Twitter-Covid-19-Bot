@@ -14,15 +14,16 @@ ACCESS_SECRET = '7blv9zwieHzHnY30cXGtGZDmVqcBHCQRtsjyOg6XvlQiI'
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 # login
-while True:
-    api = tweepy.API(auth) 
-    url = "https://api.covid19tracker.ca/summary"
-    fileobj = urllib.request.urlopen(url)
-    data = json.loads(fileobj.read())
+
+api = tweepy.API(auth) 
+url = "https://api.covid19tracker.ca/summary"
+fileobj = urllib.request.urlopen(url)
+data = json.loads(fileobj.read())
     
 
-    print('This is my twitter bot!')
-    print(json.load(urllib.request.urlopen(url)))
+print('This is my twitter bot!')
+print(json.load(urllib.request.urlopen(url)))
+while True:
     print(data['data'])
 
     # save the data from the json into variables to print to console and tweet
@@ -44,8 +45,12 @@ while True:
     # the tweets to be published !!
     tweet = ("Canadian Covid Statistics For Today:" + "\n\nNew Cases: " + str(update_cases) + "\nNew Deaths: " + '{:,}'.format(new_deaths) + "\n\nTotal Cases: " + '{:,}'.format(total_cases) + "\nTotal Deaths: " + '{:,}'.format(total_deaths) + "\nTotal Tests: " + '{:,}'.format(total_tests) + "\nTotal Recoveries: " + '{:,}'.format(total_recoveries) + "\n\nNew Vaccinations: " + '{:,}'.format(new_vaccinations) + "\nTotal Canadians Vaccinated: " + '{:,}'.format(total_current_vaccinated) + "\nRemaining Vaccine Supply: " + '{:,}'.format(total_new_vaccinated))
     tweet2 = ("Please follow the recommended health precautions when travelling or working: https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks.html")
-    print(len(tweet)) #check character amount for the tweet, must be 280 or below, edit if there is too much
-    print(tweet) #ensure output is looking good in the console before tweeting
+
+    #check character amount for the tweet, must be 280 or below, edit if there is too much
+    print(len(tweet)) 
+
+    #ensure output is looking good in the console before tweeting
+    print(tweet) 
 
     # change directory to pictures
     os.chdir('pics')
@@ -57,7 +62,7 @@ while True:
         for picture in os.listdir('.'):
             api.update_with_media('../8.jpg', tweet2) #go to previous directory to retreive picture
             api.update_with_media(picture, tweet)
-            time.sleep(86400)# 86400 seconds = every 24 hours
+            time.sleep(86400) # 86400 seconds = every 24 hours
 
     except:
             print('There was an error with uploading the tweets')
