@@ -13,13 +13,13 @@ ACCESS_SECRET = '7blv9zwieHzHnY30cXGtGZDmVqcBHCQRtsjyOg6XvlQiI'
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
-
 # login
 while True:
     api = tweepy.API(auth) 
     url = "https://api.covid19tracker.ca/summary"
     fileobj = urllib.request.urlopen(url)
     data = json.loads(fileobj.read())
+    
 
     print('This is my twitter bot!')
     print(json.load(urllib.request.urlopen(url)))
