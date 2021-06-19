@@ -18,12 +18,11 @@ auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth) 
 url = "https://api.covid19tracker.ca/summary"
 fileobj = urllib.request.urlopen(url)
-data = json.loads(fileobj.read())
-    
 
 print('This is my twitter bot!')
 print(json.load(urllib.request.urlopen(url)))
 while True:
+    data = json.loads(fileobj.read())
     print(data['data'])
 
     # save the data from the json into variables to print to console and tweet
